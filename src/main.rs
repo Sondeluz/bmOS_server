@@ -9,7 +9,7 @@
 //! - **audio.txt** : Indicates the audio tracks to be played for each intent. It can be empty
 //! - **timings.txt** : Indicates the time limits for each intent. It is mandatory to have one entry for each intent without an audio track, again excluding the preset intents.
 //! 
-//! **Information about the syntax and contents needed in each configuration files is present in the documentation of the functions inside the config module.**
+//! **Information about the syntax and contents needed in each of the configuration files is present in the documentation of the functions inside the config module.**
 //!
 //! ## Mandatory intents
 //! The following intents are mandatory to have faces defined in faces.txt:
