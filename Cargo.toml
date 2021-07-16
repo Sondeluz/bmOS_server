@@ -3,7 +3,7 @@ name = "bmos_server"
 license =  "GPL-3.0-or-later"
 authors = ["Sam <github@samueldgv.com>"]
 description = "bmOS_server is an executable in charge of receiving intents and rendering their associated BMO-faces and playing audio tracks. This is part of the software required to run a custom BMO-Boy."
-version = "1.0.0"
+version = "1.0.1"
 edition = "2018"
 
 [dependencies.sdl2]
