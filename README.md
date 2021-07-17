@@ -35,3 +35,4 @@ The following assumptions are made when running this application:
 ## Recommendations
 - Since the paths for the mandatory files are pre-determined, I advise to have all assets in an "assets" folder wherever the executable is in.
 - Provide appropiate timings for each intent. For example, setting 100 for a given intent without an audio track will make it zoom past it and go back to the default state. A good timing that I found for such intents is 4500 (4'5 seconds).
+- I used all kinds of image and audio formats with success and stuck with .jpg and .png for images, and .ogg and .wav for audio. The more compressed the better since they are read from disk, and devices such as a raspberry are really slow to read them.
