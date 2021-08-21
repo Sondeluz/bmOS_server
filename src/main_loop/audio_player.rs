@@ -10,7 +10,7 @@ use super::StateMutex;
 /// once it finishes.
 /// The behavior is undefined if multiple sounds are played at the same time with the
 /// same state instance.
-pub fn play_sound(path : String, state : StateMutex ) {
+pub fn play_sound(path : Vec<u8>, state : StateMutex ) {
     let state_clone = Arc::clone(&state);
 
     thread::spawn(move || {
@@ -18,7 +18,7 @@ pub fn play_sound(path : String, state : StateMutex ) {
 
         let mut wav = audio::Wav::default();
 
-        wav.load(&std::path::Path::new(&path)).unwrap();
+        wav.load_mem(path).unwrap();
 
         sl.play(&wav); // calls to play are non-blocking, so we put the thread to sleep
         while sl.active_voice_count() > 0 {

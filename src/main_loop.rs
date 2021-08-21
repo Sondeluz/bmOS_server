@@ -1,5 +1,5 @@
+extern crate random_number;
 extern crate sdl2;
-extern crate random_number; // For loading random assets for a given intent
 
 // SDL libs
 use sdl2::event::Event;
@@ -66,8 +66,8 @@ pub fn run( address : String, port : String,
             res_width : u32, res_height : u32,
             api_key : Option<String>, location : Option<String>, 
             country : Option<String>, 
-            intent_faces : HashMap<String, Vec<String>>, 
-            intent_audio : HashMap<String, Vec<String>>,
+            intent_faces : HashMap<String, Vec<Vec<u8>>>, 
+            intent_audio : HashMap<String, Vec<Vec<u8>>>,
             intent_timings : HashMap<String, u64> ) -> Result<(), String> {
     // SDL initialization
     let sdl_context = sdl2::init()?;
@@ -108,7 +108,7 @@ pub fn run( address : String, port : String,
     let mut loaded_face = false; // Has the intent's face been presented?
     let mut time_limit_loaded = false;
 
-    let mut current_face = ""; // Current face's path, it will get loaded on the first iteration
+    let mut current_face : &Vec<u8> = &Vec::new(); // Current face's texture
     let mut current_intent_clone = "default".to_owned(); // In order to prevent changing the intents mid-iteration, we keep a local copy
 
     'mainloop: loop {       
@@ -231,8 +231,8 @@ pub fn run( address : String, port : String,
         }
 
         // Update the canvas
-        let image = Path::new(current_face);
-        let texture = texture_creator.load_texture(image)?;
+        //let image = Path::new(current_face);
+        let texture = texture_creator.load_texture_bytes(current_face)?;
         canvas.copy(&texture, None, None)?;
         canvas.present();
 

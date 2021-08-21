@@ -54,9 +54,11 @@ fn main() -> Result<(), Box<dyn Error>> {
         std::process::exit(-1);
     }
 
-    let intent_faces = config::parse_assets("faces.txt").unwrap();
-    let intent_audio = config::parse_assets("audio.txt").unwrap();
+    let intent_faces = config::load_assets(&config::parse_assets("faces.txt").unwrap()).unwrap();
+    let intent_audio = config::load_assets(&config::parse_assets("audio.txt").unwrap()).unwrap();
     let intent_timings = config::parse_timings("timings.txt").unwrap();
+
+
 
     println!("Asset locations parsed successfully, starting...");
 
@@ -64,9 +66,12 @@ fn main() -> Result<(), Box<dyn Error>> {
     let res_height = args[4].clone().parse::<u32>().unwrap();
 
     if args.len() == 6 {
-        main_loop::run(args[1].clone(), args[2].clone(), res_width, res_height, Some(args[5].clone()), Some(args[6].clone()), Some(args[7].clone()), intent_faces, intent_audio, intent_timings).unwrap();
+        main_loop::run(args[1].clone(), args[2].clone(), res_width, res_height, 
+                        Some(args[5].clone()), Some(args[6].clone()), 
+                        Some(args[7].clone()), intent_faces, intent_audio, intent_timings).unwrap();
     } else {
-        main_loop::run(args[1].clone(), args[2].clone(), res_width, res_height, None, None, None, intent_faces, intent_audio, intent_timings).unwrap();
+        main_loop::run(args[1].clone(), args[2].clone(), res_width, res_height, 
+                        None, None, None, intent_faces, intent_audio, intent_timings).unwrap();
     }
 
     

@@ -1,6 +1,10 @@
+extern crate sdl2;
+
 use std::collections::HashMap;
+use std::fs;
 use std::fs::File;
 use std::io::{prelude::*, BufReader};
+use std::path::{Path}; 
 
 /// Parse assets from a specified filename into a HashMap.
 /// # Format
@@ -128,4 +132,26 @@ pub fn parse_timings(filename : &str) -> Result<HashMap<String, u64>, std::io::E
     intents.insert(entry.clone(), val); // insert the last intent's vector into the map
 
     Ok(intents)
+}
+
+
+/// Load previously parsed assets from a specified HashMap (the result of parse_assets) into a HashMap of intents and lists of in-memory files
+pub fn load_assets(assets : &HashMap<String, Vec<String>>) -> Result<HashMap<String, Vec<Vec<u8>>>, std::io::Error> {
+    let mut result : HashMap<String, Vec<Vec<u8>>> = HashMap::new(); 
+
+    for tuple in assets.iter() {
+        let intent = tuple.0;
+        
+        let mut files : Vec<Vec<u8>> = Vec::new();
+
+        for path in tuple.1.iter() {
+            let path = Path::new(path);
+            let file = fs::read(path)?;
+            files.push(file);
+        }
+    
+        result.insert(intent.clone(), files);
+    }
+
+    Ok(result)
 }
