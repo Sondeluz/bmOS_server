@@ -6,6 +6,15 @@ playing audio tracks. This is part of the software required to run my custom BMO
 The documentation and setup information for bmOS_client, the other software component which sends the intents to this one, is also available [here](https://docs.rs/bmos_client/), with the source located [here](https://github.com/Sondeluz/bmOS_client)
 
 
+## Dependencies
+The following libraries are required for it to run:
+- libSDL2-2.0
+- libSDL2_image-2.0
+- libSDL2_ttf-2.0
+- libopenal-dev (for audio tracks to play, using soloud)
+
+## Building
+Using [cargo](https://crates.io), run ```cargo install bmos_server``` to download and compile it.
 
 ## Configuration files
 The following configuration files are required to be present in the same folder the executable is in:
