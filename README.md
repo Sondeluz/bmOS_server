@@ -11,7 +11,7 @@ The following libraries are required for it to run:
 - libSDL2-2.0
 - libSDL2_image-2.0
 - libSDL2_ttf-2.0
-- cmake (only for building soloud during compile)
+- cmake (only for building soloud if compiling)
 - libopenal-dev (for audio tracks to play, using soloud)
 
 ## Building
