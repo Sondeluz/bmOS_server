@@ -14,7 +14,7 @@ The following libraries are required for it to run:
 - libopenal-dev (for audio tracks to play, using soloud)
 
 ## Building
-Using [cargo](https://crates.io), run '''cargo install bmos_server''' to download and compile it.
+Using [cargo](https://crates.io), run ```cargo install bmos_server``` to download and compile it.
 
 ## Configuration files
 The following configuration files are required to be present in the same folder the executable is in:
