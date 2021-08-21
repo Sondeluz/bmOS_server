@@ -1,7 +1,11 @@
 # bmOS_server
 
 bmOS_server is an executable in charge of receiving intents and rendering their associated BMO-faces and 
-playing audio tracks. This is part of the software required to run my custom BMO-Boy. Images and a blog post are coming soon.
+playing audio tracks. This is part of the software required to run my custom BMO-Boy. Images and a blog post are coming soon. More in-depth documentation is available [here](https://github.com/Sondeluz/bmOS_server).
+
+The documentation and setup information for bmOS_client, the other software component which sends the intents to this one, is also available [here](https://docs.rs/bmos_client/), with the source located [here](https://github.com/Sondeluz/bmOS_client)
+
+
 
 ## Configuration files
 The following configuration files are required to be present in the same folder the executable is in:
@@ -29,5 +33,6 @@ The following assumptions are made when running this application:
 - If the device running the bmOS_server is the audio (microphone) source, it's streaming it to the device running bmOS_client by some other means. bmOS_server does not record any audio, and only listens to strings received to its provided address.
 
 ## Recommendations
-- Since the paths for the mandatory files are pre-determined, I advice to have all assets in an "assets" folder wherever the executable is in.
+- Since the paths for the mandatory files are pre-determined, I advise to have all assets in an "assets" folder wherever the executable is in.
 - Provide appropiate timings for each intent. For example, setting 100 for a given intent without an audio track will make it zoom past it and go back to the default state. A good timing that I found for such intents is 4500 (4'5 seconds).
+- I used all kinds of image and audio formats with success and stuck with .jpg and .png for images, and .ogg and .wav for audio. The more compressed the better since they are read from disk, and devices such as a raspberry are really slow to read them.
