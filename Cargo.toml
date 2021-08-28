@@ -3,7 +3,7 @@ name = "bmos_server"
 license =  "GPL-3.0-or-later"
 authors = ["Sam <github@samueldgv.com>"]
 description = "bmOS_server is an executable in charge of receiving intents and rendering their associated BMO-faces and playing audio tracks. This is part of the software required to run a custom BMO-Boy."
-version = "1.0.2"
+version = "1.0.3"
 edition = "2018"
 
 [dependencies.sdl2]
@@ -17,3 +17,6 @@ version = "0.1.6"
 [dependencies]
 soloud = { version = "0.4.0", default-features = false, features = ["openal"] }
 openweathermap = "0.2.4"
+
+[profile.release]
+debug = 1

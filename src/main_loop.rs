@@ -76,12 +76,13 @@ pub fn run( address : String, port : String,
     let window = video_subsystem
         .window("rust-sdl2 demo: Video", res_width, res_height)
         .position_centered()
+        .opengl()
         .build()
         .map_err(|e| e.to_string())?;
 
     let mut canvas = window
         .into_canvas()
-        .software()
+        //.software()
         .build()
         .map_err(|e| e.to_string())?;
     let texture_creator = canvas.texture_creator();    
