@@ -1,7 +1,7 @@
 # bmOS_server
 
 bmOS_server is an executable in charge of receiving intents and rendering their associated BMO-faces and 
-playing audio tracks. This is part of the software required to run my custom BMO-Boy. Images and a blog post are coming soon. More in-depth documentation is available [here](https://github.com/Sondeluz/bmOS_server).
+playing audio tracks. This is part of the software required to run my custom BMO-Boy. Images and a blog post are coming soon. More in-depth documentation is available [here](https://docs.rs/bmos_server/).
 
 The documentation and setup information for bmOS_client, the other software component which sends the intents to this one, is also available [here](https://docs.rs/bmos_client/), with the source located [here](https://github.com/Sondeluz/bmOS_client)
 
@@ -11,6 +11,7 @@ The following libraries are required for it to run:
 - libSDL2-2.0
 - libSDL2_image-2.0
 - libSDL2_ttf-2.0
+- cmake (build dependency for soloud)
 - libopenal-dev (for audio tracks to play, using soloud)
 
 ## Building
